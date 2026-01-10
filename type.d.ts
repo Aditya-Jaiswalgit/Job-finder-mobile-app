@@ -3,6 +3,7 @@ import { ImageSourcePropType } from "react-native";
 interface ScreenHeaderBtnProps {
   iconUrl: ImageSourcePropType;
   dimension: string;
+  handlePress: any;
 }
 
 interface PopularJobcardProps {
@@ -11,7 +12,39 @@ interface PopularJobcardProps {
   selectedJob: any;
 }
 
-interface UseFetchOptions {
-  query: string;
-  num_pages: number;
+interface NearbyJobCardProps {
+  job: any;
+  handleNavigate: any;
+}
+
+interface aboutProps {
+  info: any;
+}
+
+interface specificProps {
+  title: string;
+  points: any;
+}
+
+interface companyprops {
+  companyLogo: any;
+  jobTitle: any;
+  companyName: any;
+  location: any;
+}
+
+interface Footerprops {
+  url: string;
+}
+
+interface tabsProps {
+  tabs: any;
+  activeTab: any;
+  setActiveTab: any;
+}
+
+interface tabButtonprops {
+  name: string;
+  activeTab: any;
+  onHandleSearchType: any;
 }

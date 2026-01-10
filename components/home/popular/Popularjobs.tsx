@@ -1,5 +1,3 @@
-import PopularJobCard from "@/components/common/cards/popular/PopularJobCard";
-import useFetch from "@/hook/useFetch";
 import { useRouter } from "expo-router";
 import React, { useState } from "react";
 import {
@@ -10,28 +8,29 @@ import {
   View,
 } from "react-native";
 
+import PopularJobCard from "@/components/common/cards/popular/PopularJobCard";
 import { COLORS, SIZES } from "@/constants";
+import useFetch from "@/hook/useFetch";
 import styles from "./popularjobs.style";
 
-const Popularjobs = () => {
+const PopularJobs = () => {
   const router = useRouter();
+  const [selectedJob, setSelectedJob] = useState<string | null>(null);
 
   const { data, isLoading, error } = useFetch("search", {
     query: "React developer",
     num_pages: 1,
   });
 
-  const [selectedJob, setSelectedJob] = useState();
-
-  const handleCardPress = (item: any) => {
-    router.push(`/job-details/${item.job_id}`);
-    setSelectedJob(item.job_id);
+  const handleCardPress = (job: any) => {
+    setSelectedJob(job.job_id);
+    router.push(`/job-details/${job.job_id}`);
   };
 
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.header}>Popular jobs</Text>
+        <Text style={styles.headerTitle}>Popular jobs</Text>
         <TouchableOpacity>
           <Text style={styles.headerBtn}>Show all</Text>
         </TouchableOpacity>
@@ -39,23 +38,23 @@ const Popularjobs = () => {
 
       <View style={styles.cardsContainer}>
         {isLoading ? (
-          <ActivityIndicator size={"large"} color={COLORS.primary} />
+          <ActivityIndicator size="large" color={COLORS.primary} />
         ) : error ? (
           <Text>Something went wrong</Text>
         ) : (
           <FlatList
+            data={data}
             horizontal
             showsHorizontalScrollIndicator={false}
-            data={data}
+            keyExtractor={(item) => item.job_id}
+            contentContainerStyle={{ columnGap: SIZES.medium }}
             renderItem={({ item }) => (
               <PopularJobCard
                 item={item}
-                selectedJob={setSelectedJob}
+                selectedJob={selectedJob}
                 handleCardPress={handleCardPress}
               />
             )}
-            keyExtractor={(item) => item?.job_id}
-            contentContainerStyle={{ columnGap: SIZES.medium }}
           />
         )}
       </View>
@@ -63,4 +62,4 @@ const Popularjobs = () => {
   );
 };
 
-export default Popularjobs;
+export default PopularJobs;

@@ -18,11 +18,19 @@ export default function Index() {
           headerStyle: { backgroundColor: COLORS.lightWhite },
           headerShadowVisible: false,
           headerLeft: () => (
-            <ScreenHeaderBtn iconUrl={icons.menu} dimension="60%" />
+            <ScreenHeaderBtn
+              iconUrl={icons.menu}
+              dimension="60%"
+              handlePress={(text: string) => text}
+            />
           ),
           headerTitle: "",
           headerRight: () => (
-            <ScreenHeaderBtn iconUrl={images.profile} dimension="100%" />
+            <ScreenHeaderBtn
+              iconUrl={images.profile}
+              dimension="100%"
+              handlePress={(text: string) => text}
+            />
           ),
         }}
       />
