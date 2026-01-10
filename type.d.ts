@@ -7,8 +7,11 @@ interface ScreenHeaderBtnProps {
 
 interface PopularJobcardProps {
   item: any;
+  handleCardPress: any;
+  selectedJob: any;
 }
 
-interface useFetchProps {
-  endpoint: string;
+interface UseFetchOptions {
+  query: string;
+  num_pages: number;
 }

@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
 });
 
 // ✅ dynamic style function defined separately
-export const btnImg = (dimension) => ({
+export const btnImg = (dimension: any) => ({
   width: dimension,
   height: dimension,
   borderRadius: SIZES.small / 1.25,
