@@ -28,7 +28,6 @@ const JobDetails = () => {
 
   const { data, isLoading, error } = useFetch("job-details", {
     job_id: params.id,
-    country: "us",
   });
 
   const job = data?.[0];
@@ -38,7 +37,7 @@ const JobDetails = () => {
 
   const onRefresh = useCallback(() => {
     setRefreshing(true);
-    refetch();
+    // refetch();
     setRefreshing(false);
   }, []);
 

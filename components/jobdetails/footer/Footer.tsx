@@ -1,12 +1,13 @@
-import { View, Text, TouchableOpacity, Image, Linking } from "react-native";
+import { Image, Linking, Text, TouchableOpacity } from "react-native";
 
-import styles from "./footer.style";
-import { icons } from "../../../constants";
 import { Footerprops } from "@/type";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { icons } from "../../../constants";
+import styles from "./footer.style";
 
 const Footer = ({ url }: Footerprops) => {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container} edges={["bottom"]}>
       <TouchableOpacity style={styles.likeBtn}>
         <Image
           source={icons.heartOutline}
@@ -21,7 +22,7 @@ const Footer = ({ url }: Footerprops) => {
       >
         <Text style={styles.applyBtnText}>Apply for job</Text>
       </TouchableOpacity>
-    </View>
+    </SafeAreaView>
   );
 };
 
