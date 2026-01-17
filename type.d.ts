@@ -48,3 +48,9 @@ interface tabButtonprops {
   activeTab: any;
   onHandleSearchType: any;
 }
+
+interface welcomeProps {
+  searchTerm: any;
+  setSearchTerm: any;
+  handleClick: any;
+}

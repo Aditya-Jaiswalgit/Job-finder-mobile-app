@@ -8,15 +8,8 @@ import {
   View,
 } from "react-native";
 
-import {
-  Company,
-  JobAbout,
-  JobFooter,
-  JobTabs,
-  ScreenHeaderBtn,
-  Specifics,
-} from "@/components";
-import { COLORS, icons, SIZES } from "@/constants";
+import { Company, JobAbout, JobFooter, JobTabs, Specifics } from "@/components";
+import { COLORS, SIZES } from "@/constants";
 import { SafeAreaView } from "react-native-safe-area-context";
 import useFetch from "../../hook/useFetch";
 
@@ -76,16 +69,6 @@ const JobDetails = () => {
           headerStyle: { backgroundColor: COLORS.lightWhite },
           headerShadowVisible: false,
           headerBackVisible: false,
-          headerLeft: () => (
-            <ScreenHeaderBtn
-              iconUrl={icons.left}
-              dimension="60%"
-              handlePress={() => router.back()}
-            />
-          ),
-          headerRight: () => (
-            <ScreenHeaderBtn iconUrl={icons.share} dimension="60%" />
-          ),
           headerTitle: "",
         }}
       />
